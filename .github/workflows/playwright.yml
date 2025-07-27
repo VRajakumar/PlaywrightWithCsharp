@@ -24,7 +24,7 @@ jobs:
       run: |
         dotnet tool install --global Microsoft.Playwright.CLI
         export PATH="$PATH:~/.dotnet/tools"
-        dotnet playwright install --with-deps
+        playwright install --with-deps
 
     - name: Restore NuGet packages
       run: dotnet restore
