@@ -20,12 +20,6 @@ jobs:
       with:
         dotnet-version: '6.0.x' # or '7.0.x' if you're using .NET 7
 
-    - name: Install Playwright for .NET
-      run: |
-        dotnet tool install --global Microsoft.Playwright.CLI
-        export PATH="$PATH:~/.dotnet/tools"
-        playwright install --with-deps
-
     - name: Restore NuGet packages
       run: dotnet restore
 
