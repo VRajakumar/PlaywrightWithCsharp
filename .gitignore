@@ -365,3 +365,9 @@ FodyWeavers.xsd
 # Reqnroll Framework
 *.feature.cs
 *.AssemblyHooks.cs
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
