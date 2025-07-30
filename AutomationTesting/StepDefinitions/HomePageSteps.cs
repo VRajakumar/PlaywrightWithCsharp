@@ -24,8 +24,8 @@ namespace AutomationTesting.StepDefinitions
             _config = Hooks.Hooks.Config!;
         }
 
-        [Given(@"The user launches the ParaBank application")]
-        public async Task GivenTheUserLaunchesTheParaBankApplication()
+        [Given(@"User is on the Pyramidcore Home Page")]
+        public async Task GivenUserisonthePyramidcoreHomePage()
         {
 
             await _page.GotoAsync(_config!.Url!);

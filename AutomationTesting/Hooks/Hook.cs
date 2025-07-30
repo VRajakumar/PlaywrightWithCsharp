@@ -4,6 +4,7 @@ using AutomationTesting.Utils;
 using Microsoft.Playwright;
 using Newtonsoft.Json;
 using TechTalk.SpecFlow;
+using System.Text;
 
 namespace AutomationTesting.Hooks
 {
@@ -35,7 +36,6 @@ namespace AutomationTesting.Hooks
                 {
                     ViewportSize = ViewportSize.NoViewport
                 });
-                
                 Page = await _context.NewPageAsync();
             }
             else
@@ -44,7 +44,7 @@ namespace AutomationTesting.Hooks
             }
         }
 
-         [AfterScenario]
+        [AfterScenario]
         public async Task AfterScenario(ScenarioContext context)
         {
             if (context.TestError != null)
@@ -57,7 +57,6 @@ namespace AutomationTesting.Hooks
                 AllureLifecycle.Instance.AddAttachment($"Failed Scenario: {context.ScenarioInfo.Title}",
                     "application/png", screenshot);
             }
-            
             if (Page != null)
             {
                 await Page.CloseAsync();
@@ -75,7 +74,6 @@ namespace AutomationTesting.Hooks
             {
                 throw new NullReferenceException("The context is not initialized.");
             }
-            
         }
 
         [AfterTestRun]
@@ -89,7 +87,6 @@ namespace AutomationTesting.Hooks
             {
                 throw new NullReferenceException("The browser is not initialized.");
             }
-            
         }
     }
 }
