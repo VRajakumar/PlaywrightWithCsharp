@@ -1,6 +1,6 @@
-Feature: ParaBank Home
+Feature: Pyramidcore Home
 
-Scenario: Verify ParaBank Home Page Loads Successfully
-    Given The user launches the ParaBank application
+Scenario: Verify Pyramidcore Home Page Loads Successfully
+    Given User is on the Pyramidcore Home Page
 
 

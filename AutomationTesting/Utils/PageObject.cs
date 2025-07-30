@@ -1,4 +1,6 @@
 ﻿using Microsoft.Playwright;
+using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace AutomationTesting.Utils;
 
@@ -21,4 +23,28 @@ public class PageObject
     {
         await Assertions.Expect(_page).ToHaveURLAsync(expectedUrl);
     }
+
+    public async Task EnterText(string elementLocator, string text)
+    {
+        await _page.Locator(elementLocator).FillAsync(text);
+    }
+
+    public async Task ClickElement(string elementLocator)
+    {
+        await _page.Locator(elementLocator).ClickAsync();
+    }
+    public async Task WaitForElementBeVisible(string elementLocator)
+    {
+        await _page.Locator(elementLocator).IsVisibleAsync();
+    }
+
+    public async Task ErrorMsg(string elementLocator)
+    {
+        var locator = _page.Locator(elementLocator);
+        await Task.Delay(1000); 
+        await Assertions.Expect(locator).ToHaveTextAsync("* User not found");
+
+    }
+
+
 }
